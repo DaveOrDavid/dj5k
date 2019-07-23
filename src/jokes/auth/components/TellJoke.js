@@ -44,19 +44,23 @@ class TellJoke extends Component {
   handleSubmit = event => {
     event.preventDefault()
 
-    axios.post(`${apiUrl}/telljoke`, {
-      joke: this.state.joke
+    console.log(this.props.user.token)
+    axios({
+      url: `${apiUrl}/jokes`,
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      },
+      data: { joke: this.state.joke }
     })
-      .then(res => this.setState({
-        createdJokeID: res.data.joke.id
-      }))
-      .catch(console.error)
+      .then(res => this.setState({ createdJokeID: res.data.joke._id }))
+      .catch(err => this.setState({ error: err.message }))
   }
 
   render () {
     const { handleChange, handleSubmit } = this
     const { joke, createdJokeID } = this.state
-    console.log(joke)
+    console.log(joke, createdJokeID)
 
     if (createdJokeID) {
       return <Redirect to={`/jokes/${createdJokeID}`} />
