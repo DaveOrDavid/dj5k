@@ -7,6 +7,8 @@ const authenticatedOptions = (
   <React.Fragment>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
+    <Link to="/jokes">All Jokes</Link>
+    <Link to="/telljoke">Tell a Joke</Link>
   </React.Fragment>
 )
 
@@ -19,19 +21,26 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <React.Fragment>
-    <Link to="/">Home</Link>
+    <Link to="/">Go Home (and Don&apos;t touch that thermostat!)</Link>
+    <Link to='/random'>Random Joke - Reach in the Cargo Short Pocket  </Link>
   </React.Fragment>
 )
 
 const Header = ({ user }) => (
-  <header className="main-header">
-    <h1>Dad Joke 5000</h1>
-    <nav>
-      { user && <span>Welcome, {user.email}</span>}
-      { user ? authenticatedOptions : unauthenticatedOptions }
-      { alwaysOptions }
-    </nav>
-  </header>
+  <React.Fragment>
+    <header className="main-header">
+      <h1>Dad Joke 5000</h1>
+      <nav>
+        { user && <span>Welcome, {user.email}</span>}
+        { user ? authenticatedOptions : unauthenticatedOptions }
+        { alwaysOptions }
+      </nav>
+    </header>
+    <section className="joke-body">
+      <div>
+      </div>
+    </section>
+  </React.Fragment>
 )
 
 export default Header

@@ -10,7 +10,8 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 // import Nav from './Nav'
 import Layout from './Layout'
-// import Jokes from './body/Jokes'
+import Jokes from './jokes/auth/components/Jokes'
+import TellJoke from './jokes/auth/components/TellJoke.js'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -42,6 +43,7 @@ class App extends Component {
           <Alert key={index} dismissible variant={alert.type}>
             <Alert.Heading>
               {alert.message}
+              <h3>Testing alert</h3>
             </Alert.Heading>
           </Alert>
         ))}
@@ -59,7 +61,17 @@ class App extends Component {
             <ChangePassword alert={this.alert} user={user} />
           )} />
         </main>
-        <Layout />
+
+        <Layout user={user} />
+        <section className="humorDisplay">
+          <AuthenticatedRoute user={user} exact path='/jokes' render={() => (
+            <Jokes user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/telljoke' render={() => (
+            <TellJoke user={user} />
+          )} />
+          <p>help</p>
+        </section>
       </React.Fragment>
     )
   }
