@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../../apiConfig'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 class Jokes extends Component {
   constructor (props) {
@@ -31,9 +32,8 @@ class Jokes extends Component {
   render () {
     const { jokes, error, loaded } = this.state
     const jokesList = jokes.map(joke => (
-      <li key={joke._id}>
-        <Link to={`/jokes/${joke._id}`}>{joke.title}</Link>
-      </li>
+      <ListGroup.Item key={joke._id} action href={`#/jokes/${joke._id}`}>{joke.title}
+      </ListGroup.Item>
     ))
     console.log('Jokes are ', this.state)
 
@@ -52,9 +52,9 @@ class Jokes extends Component {
     return (
       <React.Fragment>
         <h4>Jokes</h4>
-        <ul>
+        <ListGroup>
           {jokesList}
-        </ul>
+        </ListGroup>
       </React.Fragment>
     )
   }
