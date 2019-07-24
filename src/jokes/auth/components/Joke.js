@@ -18,7 +18,11 @@ class Joke extends Component {
   deleteJoke = () => {
     axios({
       url: `${apiUrl}/jokes/${this.props.match.params._id}`,
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      },
+      data: { joke: this.state.joke }
     })
       .then(() => this.setState({ deleted: true }))
       .catch(err => this.setState({ error: err.stack }))
@@ -58,6 +62,14 @@ class Joke extends Component {
     if (!joke) {
       return <p>Loading...</p>
     }
+
+    // if (joke.isfunny === false) {
+    //   return '🙄'
+    // }
+
+    // if (joke.isfunny === true) {
+    //   return '😂'
+    // }
 
     return (
       <React.Fragment>
