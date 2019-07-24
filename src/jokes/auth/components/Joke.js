@@ -18,14 +18,17 @@ class Joke extends Component {
   deleteJoke = () => {
     axios({
       url: `${apiUrl}/jokes/${this.props.match.params._id}`,
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      },
+      data: { joke: this.state.joke }
     })
       .then(() => this.setState({ deleted: true }))
       .catch(err => this.setState({ error: err.stack }))
   }
 
   componentDidMount () {
-    console.log('Props are', this.props)
     axios({
       url: `${apiUrl}/jokes/${this.props.match.params._id}`,
       method: 'GET',
@@ -60,11 +63,20 @@ class Joke extends Component {
       return <p>Loading...</p>
     }
 
+    // if (joke.isfunny === false) {
+    //   return '🙄'
+    // }
+
+    // if (joke.isfunny === true) {
+    //   return '😂'
+    // }
+
     return (
       <React.Fragment>
         <h4>{joke.title}</h4>
-        <p>Setup {joke.setup}</p>
-        <p>Punchline {joke.punchline}</p>
+        <p>Setup: {joke.setup}</p>
+        <p>Punchline: {joke.punchline}</p>
+        <p>Funny or Not? {String(joke.isfunny)}</p>
         <Link to="/jokes">Back to more Dad Jokes</Link>
         <button onClick={this.deleteJoke}>Delete Joke</button>
         <Link to={`/jokes/${this.props.match.params._id}/edit`}>

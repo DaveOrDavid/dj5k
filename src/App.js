@@ -12,6 +12,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import Layout from './Layout'
 import Joke from './jokes/auth/components/Joke'
 import Jokes from './jokes/auth/components/Jokes'
+import JokeEdit from './jokes/auth/components/JokeEdit'
 import TellJoke from './jokes/auth/components/TellJoke.js'
 
 import Alert from 'react-bootstrap/Alert'
@@ -73,6 +74,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/jokes/:_id' render={() => (
             <Joke user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/jokes/:_id/edit' render={() => (
+            <JokeEdit user={user} />
           )} />
         </section>
       </React.Fragment>
