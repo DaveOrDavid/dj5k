@@ -82,16 +82,26 @@ class JokeEdit extends Component {
         }
       } />
     }
+
+    // if (cancelEdit) {
+    //   return <Redirect to={
+    //     {
+    //       pathname: `/jokes/${this.props.match.params._id}`,
+    //       state: {
+    //         msg: 'Updated Joke'
+    //       }
+    //     }
+    //   } />
+    // }
+
     return (
-      // import Layout & MovieForm
-      // 2a: reuse MovieForm
       <React.Fragment>
         <h3>Edit Your Joke</h3>
         <JokeForm
           joke={joke}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath="/jokes/:_id" />
+          cancelPath='/jokes/' />
       </React.Fragment>
     )
   }

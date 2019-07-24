@@ -73,7 +73,7 @@ class TellJoke extends Component {
           joke={joke}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath="/" />
+          cancelPath="/jokes/" />
       </React.Fragment>
     )
   }

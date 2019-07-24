@@ -1,18 +1,28 @@
 import React from 'react'
-
+import Form from 'react-bootstrap/Form'
+import FormControl from 'react-bootstrap/FormControl'
+import InputGroup from 'react-bootstrap/InputGroup'
 import { Link } from 'react-router-dom'
 
 // JokeForm used my TellJoke for user to create a joke and POST
 
 const JokeForm = ({ joke, handleSubmit, handleChange, cancelPath }) => (
-  <form onSubmit={handleSubmit}>
-    <label>Title</label>
-    <input
-      placeholder="Joke Title"
-      value={joke.title}
-      name="title"
-      onChange={handleChange}
-    />
+  <Form onSubmit={handleSubmit}>
+    <InputGroup className="mb-3">
+      <InputGroup.Prepend>
+        <InputGroup.Text id="basic-addon1">Title</InputGroup.Text>
+      </InputGroup.Prepend>
+      <FormControl
+        type="string"
+        placeholder="Title of Joke"
+        value={joke.title}
+        name="title"
+        onChange={handleChange}
+        aria-label="Joking title"
+        aria-describedby="basic-addon1"
+      />
+    </InputGroup>
+
     <label>Setup</label>
     <input
       placeholder="Director"
@@ -39,9 +49,10 @@ const JokeForm = ({ joke, handleSubmit, handleChange, cancelPath }) => (
     <Link to={cancelPath}>
       <button>Cancel</button>
     </Link>
-  </form>
+  </Form>
 )
+
 // Link button takes us to cancelPath so no need for click handler
-// submit button is within form listneing for onSubmit so no need for click hanlder
+// submit button is within form listening for onSubmit so no need for click hanlder
 
 export default JokeForm
