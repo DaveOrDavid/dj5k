@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-// import Layout from '../Layout'
 import axios from 'axios'
 import apiUrl from '../../../apiConfig'
 
@@ -16,7 +15,8 @@ class Jokes extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props.user.token)
+    console.log('Token is ', this.props.user.token)
+    console.log('Props is ', this.props)
     axios({
       url: `${apiUrl}/jokes`,
       method: 'GET',
@@ -35,6 +35,7 @@ class Jokes extends Component {
         <Link to={`/jokes/${joke._id}`}>{joke.setup}</Link>
       </li>
     ))
+    console.log('Jokes are ', this.state)
 
     if (!loaded) {
       return <p>Loading...</p>

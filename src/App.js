@@ -10,6 +10,7 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 // import Nav from './Nav'
 import Layout from './Layout'
+import Joke from './jokes/auth/components/Joke'
 import Jokes from './jokes/auth/components/Jokes'
 import TellJoke from './jokes/auth/components/TellJoke.js'
 
@@ -70,7 +71,9 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/telljoke' render={() => (
             <TellJoke user={user} />
           )} />
-          <p>help</p>
+          <AuthenticatedRoute user={user} exact path='/jokes/:_id' render={() => (
+            <Joke user={user} />
+          )} />
         </section>
       </React.Fragment>
     )

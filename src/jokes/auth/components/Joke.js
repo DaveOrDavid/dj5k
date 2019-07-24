@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import Layout from '../shared/Layout'
-
+import { Link, Redirect, withRouter } from 'react-router-dom'
 import axios from 'axios'
-import apiUrl from '../../apiConfig'
+import apiUrl from '../../../apiConfig'
 
 class Joke extends Component {
   constructor (props) {
@@ -19,7 +17,7 @@ class Joke extends Component {
 
   deleteJoke = () => {
     axios({
-      url: `${apiUrl}/jokes/${this.props.match.params.id}`,
+      url: `${apiUrl}/jokes/${this.props.match.params._id}`,
       method: 'DELETE'
     })
       .then(() => this.setState({ deleted: true }))
@@ -27,10 +25,19 @@ class Joke extends Component {
   }
 
   componentDidMount () {
-    axios(`${apiUrl}/jokes/${this.props.match.params.id}`)
-      .then(res => this.setState({ joke: res.data.joke }))
-      .catch(err => this.setState({ error: err.stack }))
+    console.log('Props are', this.props)
+    axios({
+      url: `${apiUrl}/jokes/${this.props.match.params._id}`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      },
+      data: { joke: this.state.joke }
+    })
+      .then(res => this.setState({ joke: res.data.joke, loaded: true }))
+      .catch(err => this.setState({ error: err.message }))
   }
+
   // error handling options:
   // 1. .catch(err => something (like this.setState({ error: err.stack })), then set this.state = {error: null}
   // remember to make .then(res => this.setState({ movie: res.data.movie }))
@@ -41,7 +48,7 @@ class Joke extends Component {
     if (deleted) {
       // return <Redirect to="/" />
       return <Redirect to={
-        { pathname: '/', state: { msg: 'Joke Successfully Deleted' } }
+        { pathname: '/jokes', state: { msg: 'Joke Successfully Deleted' } }
       } />
     }
 
@@ -54,20 +61,20 @@ class Joke extends Component {
     }
 
     return (
-      <Layout>
+      <React.Fragment>
         <h4>{joke.title}</h4>
         <p>Setup {joke.setup}</p>
         <p>Punchline {joke.punchline}</p>
         <Link to="/jokes">Back to more Dad Jokes</Link>
         <button onClick={this.deleteJoke}>Delete Joke</button>
-        <Link to={`/jokes/${this.props.match.params.id}/edit`}>
+        <Link to={`/jokes/${this.props.match.params._id}/edit`}>
           <button>Edit Joke</button>
         </Link>
-      </Layout>
+      </React.Fragment>
       // could also do ${this.props.match.url}
       // original solution <button onClick={(event) => this.deleteMovie(movie.id)}>Delete Movie</button>
     )
   }
 }
 
-export default Joke
+export default withRouter(Joke)

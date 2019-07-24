@@ -24,9 +24,16 @@ class MovieEdit extends Component {
   // use a lifecycle method to do this on load!
 
   componentDidMount () {
-    axios(`${apiUrl}/jokes/${this.props.match.params.id}`)
+    axios({
+      url: `${apiUrl}/jokes/${this.props.match.params._id}`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      },
+      data: { joke: this.state.joke }
+    })
       .then(res => this.setState({ joke: res.data.joke }))
-      .catch()
+      .catch(err => this.setState({ error: err.message }))
   }
   // Step 4: handleChange, handleSubmit
   handleChange = event => {
@@ -47,14 +54,16 @@ class MovieEdit extends Component {
   handleSubmit = event => {
     // Step 5: on submit - update state and handle redirect in render
     event.preventDefault()
-    axios.patch(`${apiUrl}/jokes/${this.props.match.params.id}`, {
-      movie: this.state.joke
+    axios({
+      url: `${apiUrl}/movies/${this.props.match.params._id}`,
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      },
+      data: { joke: this.state.joke }
     })
-      // Step 5a: update state & handle redirect in render
-      .then(res => this.setState({
-        joke: res.data.joke,
-        edited: true
-      }))
+    // Step 5a: update state & handle redirect in render
+      .then(() => this.setState({ edited: true }))
       .catch(console.error)
   }
   // Step 2: render function to display jsx
