@@ -2,6 +2,7 @@ import React from 'react'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import InputGroup from 'react-bootstrap/InputGroup'
+import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 
 // JokeForm used my TellJoke for user to create a joke and POST
@@ -23,31 +24,51 @@ const JokeForm = ({ joke, handleSubmit, handleChange, cancelPath }) => (
       />
     </InputGroup>
 
-    <label>Setup</label>
-    <input
-      placeholder="Director"
-      value={joke.setup}
-      name="setup"
-      onChange={handleChange}
-    />
-    <label>Punchline</label>
-    <input
-      placeholder="Punchline"
-      value={joke.punchline}
-      name="punchline"
-      onChange={handleChange}
-    />
-    <label>Funny?</label>
-    <input
-      placeholder="😂 or 🙄"
-      value={joke.isfunny}
-      name="isfunny"
-      onChange={handleChange}
-    />
-
-    <button type="submit">Submit</button>
+    <InputGroup className="mb-3">
+      <InputGroup.Prepend>
+        <InputGroup.Text id="basic-addon1">Setup</InputGroup.Text>
+      </InputGroup.Prepend>
+      <FormControl
+        type="string"
+        placeholder="Setup"
+        value={joke.setup}
+        name="setup"
+        onChange={handleChange}
+        aria-label="setup"
+        aria-describedby="basic-addon1"
+      />
+    </InputGroup>
+    <InputGroup className="mb-3">
+      <InputGroup.Prepend>
+        <InputGroup.Text id="basic-addon1">Punchline</InputGroup.Text>
+      </InputGroup.Prepend>
+      <FormControl
+        type="string"
+        placeholder="Punchline"
+        value={joke.punchline}
+        name="punchline"
+        onChange={handleChange}
+        aria-label="joking punchline"
+        aria-describedby="basic-addon1"
+      />
+    </InputGroup>
+    <InputGroup className="mb-3">
+      <InputGroup.Prepend>
+        <InputGroup.Text id="basic-addon1">😂 or 🙄</InputGroup.Text>
+      </InputGroup.Prepend>
+      <FormControl
+        type="string"
+        placeholder="😂 or 🙄"
+        value={joke.isfunny}
+        name="isfunny"
+        onChange={handleChange}
+        aria-label="funnyness?"
+        aria-describedby="basic-addon1"
+      />
+    </InputGroup>
+    <Button type="submit" variant="primary">Submit</Button>
     <Link to={cancelPath}>
-      <button>Cancel</button>
+      <Button variant="secondary">Cancel</Button>
     </Link>
   </Form>
 )
