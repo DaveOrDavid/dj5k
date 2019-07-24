@@ -10,7 +10,6 @@ import React from 'react'
 // props can be explicity defined (like children) or any name you pass it like props
 const Layout = ({ user }, props) => (
   <div>
-    <h3>Layout</h3>
 
     {props.children}
 

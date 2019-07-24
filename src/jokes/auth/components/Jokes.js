@@ -32,7 +32,7 @@ class Jokes extends Component {
     const { jokes, error, loaded } = this.state
     const jokesList = jokes.map(joke => (
       <li key={joke._id}>
-        <Link to={`/jokes/${joke._id}`}>{joke.setup}</Link>
+        <Link to={`/jokes/${joke._id}`}>{joke.title}</Link>
       </li>
     ))
     console.log('Jokes are ', this.state)

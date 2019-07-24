@@ -45,7 +45,6 @@ class App extends Component {
           <Alert key={index} dismissible variant={alert.type}>
             <Alert.Heading>
               {alert.message}
-              <h3>Testing alert</h3>
             </Alert.Heading>
           </Alert>
         ))}
