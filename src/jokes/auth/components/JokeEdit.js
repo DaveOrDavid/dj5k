@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-import MovieForm from '../shared/MovieForm'
-import Layout from '../shared/Layout'
+import { Redirect, withRouter } from 'react-router-dom'
+import JokeForm from './JokeForm'
 import axios from 'axios'
-import apiUrl from '../../apiConfig'
+import apiUrl from '../../../apiConfig'
 
-class MovieEdit extends Component {
+class JokeEdit extends Component {
   // Step 1: initialize constructor and state
   constructor (props) {
     super(props)
@@ -14,7 +13,7 @@ class MovieEdit extends Component {
         title: '',
         setup: '',
         punchline: '',
-        isfunny: !null
+        isfunny: ''
       },
       edited: false
     }
@@ -24,6 +23,7 @@ class MovieEdit extends Component {
   // use a lifecycle method to do this on load!
 
   componentDidMount () {
+    console.log('This state is ', this.state)
     axios({
       url: `${apiUrl}/jokes/${this.props.match.params._id}`,
       method: 'GET',
@@ -55,7 +55,7 @@ class MovieEdit extends Component {
     // Step 5: on submit - update state and handle redirect in render
     event.preventDefault()
     axios({
-      url: `${apiUrl}/movies/${this.props.match.params._id}`,
+      url: `${apiUrl}/jokes/${this.props.match.params._id}`,
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${this.props.user.token}`
@@ -75,7 +75,7 @@ class MovieEdit extends Component {
     if (edited) {
       return <Redirect to={
         {
-          pathname: `/jokes/${this.props.match.params.id}`,
+          pathname: `/jokes/${this.props.match.params._id}`,
           state: {
             msg: 'Updated Joke'
           }
@@ -85,16 +85,16 @@ class MovieEdit extends Component {
     return (
       // import Layout & MovieForm
       // 2a: reuse MovieForm
-      <Layout>
+      <React.Fragment>
         <h3>Edit Your Joke</h3>
-        <MovieForm
+        <JokeForm
           joke={joke}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath="/jokes/:id" />
-      </Layout>
+          cancelPath="/jokes/:_id" />
+      </React.Fragment>
     )
   }
 }
 
-export default MovieEdit
+export default withRouter(JokeEdit)

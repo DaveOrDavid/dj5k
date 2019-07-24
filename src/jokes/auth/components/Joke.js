@@ -25,7 +25,6 @@ class Joke extends Component {
   }
 
   componentDidMount () {
-    console.log('Props are', this.props)
     axios({
       url: `${apiUrl}/jokes/${this.props.match.params._id}`,
       method: 'GET',
@@ -63,8 +62,9 @@ class Joke extends Component {
     return (
       <React.Fragment>
         <h4>{joke.title}</h4>
-        <p>Setup {joke.setup}</p>
-        <p>Punchline {joke.punchline}</p>
+        <p>Setup: {joke.setup}</p>
+        <p>Punchline: {joke.punchline}</p>
+        <p>Funny or Not? {String(joke.isfunny)}</p>
         <Link to="/jokes">Back to more Dad Jokes</Link>
         <button onClick={this.deleteJoke}>Delete Joke</button>
         <Link to={`/jokes/${this.props.match.params._id}/edit`}>
