@@ -30,23 +30,18 @@ class Jokes extends Component {
   }
 
   render () {
-    const { jokes, error, loaded } = this.state
+    const { jokes } = this.state
     const jokesList = jokes.map(joke => (
-      <ListGroup.Item key={joke._id} action href={`#/jokes/${joke._id}`}>{joke.title}
+      <ListGroup.Item
+        key={joke._id}
+        variant="secondary"
+        action href={`#/jokes/${joke._id}`}>
+        {joke.title}
       </ListGroup.Item>
     ))
-    console.log('Jokes are ', this.state)
-
-    if (!loaded) {
-      return <p>Loading...</p>
-    }
 
     if (jokes.length === 0) {
       return <p>No jokes to return - tell us a joke instead!</p>
-    }
-
-    if (error) {
-      return <p>Error: {error}</p>
     }
 
     return (

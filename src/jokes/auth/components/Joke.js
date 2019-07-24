@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { Link, Redirect, withRouter } from 'react-router-dom'
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
 import axios from 'axios'
 import apiUrl from '../../../apiConfig'
 
@@ -73,15 +77,29 @@ class Joke extends Component {
 
     return (
       <React.Fragment>
-        <h4>{joke.title}</h4>
-        <p>Setup: {joke.setup}</p>
-        <p>Punchline: {joke.punchline}</p>
-        <p>Funny or Not? {String(joke.isfunny)}</p>
-        <Link to="/jokes">Back to more Dad Jokes</Link>
-        <button onClick={this.deleteJoke}>Delete Joke</button>
-        <Link to={`/jokes/${this.props.match.params._id}/edit`}>
-          <button>Edit Joke</button>
-        </Link>
+        <Modal.Dialog>
+          <Modal.Header>
+            <Modal.Title><h4>{joke.title}</h4></Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body className="jokeSetupDisplay">
+            <p>Setup: {joke.setup}</p>
+            <DropdownButton id="dropdown-basic-button" title="Reveal Punchline">
+              <Dropdown.Item>{joke.punchline}</Dropdown.Item>
+            </DropdownButton>
+            <p>Funny or Not? {String(joke.isfunny)}</p>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Link to={`/jokes/${this.props.match.params._id}/edit`}>
+              <Button variant="secondary">Edit Joke</Button>
+            </Link>
+            <Button variant="warning" onClick={this.deleteJoke}>Delete Joke</Button>
+            <Link to={'/jokes'}>
+              <Button variant="primary" onClick="#/jokes">Back to More Dad Jokes</Button>
+            </Link>
+          </Modal.Footer>
+        </Modal.Dialog>
       </React.Fragment>
       // could also do ${this.props.match.url}
       // original solution <button onClick={(event) => this.deleteMovie(movie.id)}>Delete Movie</button>
