@@ -58,7 +58,6 @@ class TellJoke extends Component {
   render () {
     const { handleChange, handleSubmit } = this
     const { joke, createdJokeID } = this.state
-    console.log(joke, createdJokeID)
 
     if (createdJokeID) {
       return <Redirect to={`/jokes/${createdJokeID}`} />

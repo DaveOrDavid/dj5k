@@ -51,15 +51,8 @@ class Joke extends Component {
 
   render () {
     const { joke, error, deleted } = this.state
-    // const { emojiBool } = joke.isfunny
 
     console.log('joke is', joke)
-
-    // if (emojiBool === false) {
-    //   const smiley = '🙄'
-    // } else {
-    //   const smiley = '😂'
-    // }
 
     if (deleted) {
       // return <Redirect to="/" />
@@ -76,6 +69,13 @@ class Joke extends Component {
       return <p>Loading...</p>
     }
 
+    let smiley = joke.isfunny
+    if (smiley === false) {
+      smiley = '🙄'
+    } else {
+      smiley = '😂'
+    }
+
     return (
       <React.Fragment>
         <Modal.Dialog>
@@ -88,7 +88,7 @@ class Joke extends Component {
             <DropdownButton id="dropdown-basic-button" title="Reveal Punchline">
               <Dropdown.Item>{joke.punchline}</Dropdown.Item>
             </DropdownButton>
-            <p>Funny or Not? {String(joke.isfunny)}</p>
+            <p>Funny or Not? {String(smiley)}</p>
           </Modal.Body>
 
           <Modal.Footer>
