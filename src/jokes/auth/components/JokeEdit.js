@@ -90,7 +90,7 @@ class JokeEdit extends Component {
     //     {
     //       pathname: `/jokes/${this.props.match.params._id}`,
     //       state: {
-    //         msg: 'Updated Joke'
+    //         msg: 'Cancelled Editing Joke'
     //       }
     //     }
     //   } />
@@ -103,7 +103,7 @@ class JokeEdit extends Component {
           joke={joke}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath='/jokes/' />
+          cancelPath={`/jokes/${this.props.match.params._id}`} />
       </React.Fragment>
     )
   }

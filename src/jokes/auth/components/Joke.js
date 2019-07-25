@@ -53,7 +53,7 @@ class Joke extends Component {
     const { joke, error, deleted } = this.state
     // const { emojiBool } = joke.isfunny
 
-    // console.log('emojiBool is', emojiBool)
+    console.log('joke is', joke)
 
     // if (emojiBool === false) {
     //   const smiley = '🙄'
