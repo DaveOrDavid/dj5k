@@ -15,7 +15,6 @@ import JokeEdit from './jokes/auth/components/JokeEdit'
 import TellJoke from './jokes/auth/components/TellJoke.js'
 // import Alert from 'react-bootstrap/Alert'
 
-
 class App extends Component {
   constructor () {
     super()
