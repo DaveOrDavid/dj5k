@@ -7,9 +7,13 @@ body {
   background-image: url('images/lawnbg.jpg');
 }
 
-.container,
+.container, {
+  padding: 50px;
+}
+
 .humordisplay {
   padding: 50px;
+
 }
 
 .flash-success,

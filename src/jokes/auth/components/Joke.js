@@ -51,6 +51,15 @@ class Joke extends Component {
 
   render () {
     const { joke, error, deleted } = this.state
+    // const { emojiBool } = joke.isfunny
+    //
+    // console.log('emojiBool is', emojiBool)
+    //
+    // if (emojiBool === false) {
+    //   const smiley = '🙄'
+    // } else {
+    //   const smiley = '😂'
+    // }
 
     if (deleted) {
       // return <Redirect to="/" />
@@ -66,14 +75,6 @@ class Joke extends Component {
     if (!joke) {
       return <p>Loading...</p>
     }
-
-    // if (joke.isfunny === false) {
-    //   return '🙄'
-    // }
-
-    // if (joke.isfunny === true) {
-    //   return '😂'
-    // }
 
     return (
       <React.Fragment>
