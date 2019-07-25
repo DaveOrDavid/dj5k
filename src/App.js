@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.scss'
 import { Route } from 'react-router-dom'
+import AutoDismissAlert from './AutoDismissAlert/AutoDismissAlert'
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
@@ -12,7 +13,7 @@ import Joke from './jokes/auth/components/Joke'
 import Jokes from './jokes/auth/components/Jokes'
 import JokeEdit from './jokes/auth/components/JokeEdit'
 import TellJoke from './jokes/auth/components/TellJoke.js'
-import Alert from 'react-bootstrap/Alert'
+// import Alert from 'react-bootstrap/Alert'
 
 class App extends Component {
   constructor () {
@@ -38,12 +39,11 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header user={user} />
-        {alerts.map((alert, index) => (
-          <Alert key={index} dismissible variant={alert.type}>
-            <Alert.Heading>
-              {alert.message}
-            </Alert.Heading>
-          </Alert>
+        {alerts && alerts.map((alert, index) => (
+          <AutoDismissAlert
+            key={index}
+            alert={alert}
+          />
         ))}
         <main className="container">
           <Route path='/sign-up' render={() => (
