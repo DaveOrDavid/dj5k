@@ -8,12 +8,12 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+import Dad3rdparty from './dadapi/Dad3rdparty.js'
 import Layout from './Layout'
 import Joke from './jokes/auth/components/Joke'
 import Jokes from './jokes/auth/components/Jokes'
 import JokeEdit from './jokes/auth/components/JokeEdit'
 import TellJoke from './jokes/auth/components/TellJoke.js'
-// import Alert from 'react-bootstrap/Alert'
 
 class App extends Component {
   constructor () {
@@ -62,6 +62,9 @@ class App extends Component {
 
         <Layout user={user} />
         <section className="humorDisplay">
+          <Route path='/random' render={() => (
+            <Dad3rdparty user={user} />
+          )} />
           <AuthenticatedRoute user={user} exact path='/jokes' render={() => (
             <Jokes user={user} />
           )} />
