@@ -89,6 +89,7 @@ class Joke extends Component {
               <Dropdown.Item>{joke.punchline}</Dropdown.Item>
             </DropdownButton>
             <p>Funny or Not? {String(smiley)}</p>
+
           </Modal.Body>
 
           <Modal.Footer>
