@@ -48,7 +48,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar className="main-header" expand="lg" bg="info" variant="dark" fixed="top">
     <Navbar.Brand href="#home">
-      <img src={require('./NB.png')} alt={ '' } className={ 'd-inline-block align-top' } />
+      <img src={require('../images/NB.png')} alt={ '' } className={ 'd-inline-block align-top' } />
     </Navbar.Brand>
     <h3>{ 'Dad Joke 5000' }</h3>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
