@@ -1,6 +1,5 @@
 import React from 'react'
-// import Nav from './Nav.js'
-
+// import './Layout.scss'
 // import Body from './body/Body.js'
 // import Jokes from './jokes/auth/components/Jokes.js'
 // import TellJoke from './jokes/auth/components/TellJoke.js'

@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 import './App.scss'
 import { Route } from 'react-router-dom'
-
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
-// import Nav from './Nav'
 import Layout from './Layout'
 import Joke from './jokes/auth/components/Joke'
 import Jokes from './jokes/auth/components/Jokes'
 import JokeEdit from './jokes/auth/components/JokeEdit'
 import TellJoke from './jokes/auth/components/TellJoke.js'
-
 import Alert from 'react-bootstrap/Alert'
 
 class App extends Component {
