@@ -43,8 +43,6 @@ class TellJoke extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-
-    console.log(this.props.user.token)
     axios({
       url: `${apiUrl}/jokes`,
       method: 'POST',
@@ -60,7 +58,6 @@ class TellJoke extends Component {
   render () {
     const { handleChange, handleSubmit } = this
     const { joke, createdJokeID } = this.state
-    console.log(joke, createdJokeID)
 
     if (createdJokeID) {
       return <Redirect to={`/jokes/${createdJokeID}`} />
@@ -73,7 +70,7 @@ class TellJoke extends Component {
           joke={joke}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath="/jokes/" />
+          cancelPath='/jokes'/>
       </React.Fragment>
     )
   }

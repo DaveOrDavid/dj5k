@@ -52,6 +52,8 @@ class Joke extends Component {
   render () {
     const { joke, error, deleted } = this.state
 
+    console.log('joke is', joke)
+
     if (deleted) {
       // return <Redirect to="/" />
       return <Redirect to={
@@ -67,13 +69,12 @@ class Joke extends Component {
       return <p>Loading...</p>
     }
 
-    // if (joke.isfunny === false) {
-    //   return '🙄'
-    // }
-
-    // if (joke.isfunny === true) {
-    //   return '😂'
-    // }
+    let smiley = joke.isfunny
+    if (smiley === false) {
+      smiley = '🙄'
+    } else {
+      smiley = '😂'
+    }
 
     return (
       <React.Fragment>
@@ -87,7 +88,8 @@ class Joke extends Component {
             <DropdownButton id="dropdown-basic-button" title="Reveal Punchline">
               <Dropdown.Item>{joke.punchline}</Dropdown.Item>
             </DropdownButton>
-            <p>Funny or Not? {String(joke.isfunny)}</p>
+            <p>Funny or Not? {String(smiley)}</p>
+
           </Modal.Body>
 
           <Modal.Footer>
@@ -96,13 +98,11 @@ class Joke extends Component {
             </Link>
             <Button variant="warning" onClick={this.deleteJoke}>Delete Joke</Button>
             <Link to={'/jokes'}>
-              <Button variant="primary" onClick="#/jokes">Back to More Dad Jokes</Button>
+              <Button variant="primary">Back to More Dad Jokes</Button>
             </Link>
           </Modal.Footer>
         </Modal.Dialog>
       </React.Fragment>
-      // could also do ${this.props.match.url}
-      // original solution <button onClick={(event) => this.deleteMovie(movie.id)}>Delete Movie</button>
     )
   }
 }

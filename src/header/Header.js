@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -8,24 +7,24 @@ import './Header.scss'
 
 const authenticatedOptions = (
   <React.Fragment>
-    <Link to="/change-password">Change Password</Link>
-    <Link to="/sign-out">Sign Out</Link>
-    <Link to="/jokes">All Jokes</Link>
-    <Link to="/telljoke">Tell a Joke</Link>
+    <NavDropdown.Item href="#/change-password">Change Password</NavDropdown.Item>
+    <NavDropdown.Item href="#/sign-out">Sign Out</NavDropdown.Item>
+    <NavDropdown.Item href="#/jokes">All Jokes</NavDropdown.Item>
+    <NavDropdown.Item href="#/telljoke">Tell a Joke</NavDropdown.Item>
   </React.Fragment>
 )
 
 const unauthenticatedOptions = (
   <React.Fragment>
-    <Link to="/sign-up">Sign Up</Link>
-    <Link to="/sign-in">Sign In</Link>
+    <NavDropdown.Item href="#/sign-up">Sign Up</NavDropdown.Item>
+    <NavDropdown.Item href="#/sign-in">Sign In</NavDropdown.Item>
   </React.Fragment>
 )
 
 const alwaysOptions = (
   <React.Fragment>
-    <Link to="/">Go Home (and Don&apos;t touch that thermostat!)</Link>
-    <Link to='/random'>Random Joke - Reach in the Cargo Short Pocket  </Link>
+    <NavDropdown.Item href="#/">Go Home (and Don&apos;t touch that thermostat!)</NavDropdown.Item>
+    <NavDropdown.Item href='#/random'>Random Joke - Reach in the Cargo Short Pocket  </NavDropdown.Item>
   </React.Fragment>
 )
 
@@ -46,7 +45,7 @@ const alwaysOptions = (
 //   </React.Fragment>
 
 const Header = ({ user }) => (
-  <Navbar className="main-header" expand="lg" bg="info" variant="dark" fixed="top">
+  <Navbar className="main-header" expand="sm" bg="info" variant="dark" fixed="top">
     <Navbar.Brand href="#home">
       <img src={require('../images/NB.png')} alt={ '' } className={ 'd-inline-block align-top' } />
     </Navbar.Brand>
@@ -56,14 +55,10 @@ const Header = ({ user }) => (
       <Nav className="mr-auto">
         { user && <span>Welcome, {user.email}</span>}
         <NavDropdown title="Main Menu" id="mainMenu-nav-dropdown">
-          <NavDropdown.Item>
-            { user ? authenticatedOptions : unauthenticatedOptions }
-          </NavDropdown.Item>
+          { user ? authenticatedOptions : unauthenticatedOptions }
         </NavDropdown>
         <NavDropdown title="Navigation" id="nav-nav-dropdown">
-          <NavDropdown.Item>
-            { alwaysOptions }
-          </NavDropdown.Item>
+          { alwaysOptions }
         </NavDropdown>
       </Nav>
     </Navbar.Collapse>
