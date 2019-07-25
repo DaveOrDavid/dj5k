@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
+// import Joke from './Joke'
 import JokeForm from './JokeForm'
 import axios from 'axios'
 import apiUrl from '../../../apiConfig'
@@ -32,6 +33,7 @@ class JokeEdit extends Component {
       },
       data: { joke: this.state.joke }
     })
+      // .then()
       .then(res => this.setState({ joke: res.data.joke }))
       .catch(err => this.setState({ error: err.message }))
   }

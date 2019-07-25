@@ -5,7 +5,7 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 
-// JokeForm used my TellJoke for user to create a joke and POST
+// JokeForm used my TellJoke for user to create a joke and POST and JokeEdit PATCH
 
 const JokeForm = ({ joke, handleSubmit, handleChange, cancelPath }) => (
   <Form onSubmit={handleSubmit}>

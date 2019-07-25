@@ -52,9 +52,9 @@ class Joke extends Component {
   render () {
     const { joke, error, deleted } = this.state
     // const { emojiBool } = joke.isfunny
-    //
+
     // console.log('emojiBool is', emojiBool)
-    //
+
     // if (emojiBool === false) {
     //   const smiley = '🙄'
     // } else {
@@ -97,13 +97,11 @@ class Joke extends Component {
             </Link>
             <Button variant="warning" onClick={this.deleteJoke}>Delete Joke</Button>
             <Link to={'/jokes'}>
-              <Button variant="primary" onClick="#/jokes">Back to More Dad Jokes</Button>
+              <Button variant="primary">Back to More Dad Jokes</Button>
             </Link>
           </Modal.Footer>
         </Modal.Dialog>
       </React.Fragment>
-      // could also do ${this.props.match.url}
-      // original solution <button onClick={(event) => this.deleteMovie(movie.id)}>Delete Movie</button>
     )
   }
 }
