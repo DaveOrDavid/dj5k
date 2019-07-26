@@ -16,8 +16,8 @@ class Jokes extends Component {
   }
 
   componentDidMount () {
-    console.log('Token is ', this.props.user.token)
-    console.log('Props is ', this.props)
+    // console.log('Token is ', this.props.user.token)
+    // console.log('Props is ', this.props)
     axios({
       url: `${apiUrl}/jokes`,
       method: 'GET',
