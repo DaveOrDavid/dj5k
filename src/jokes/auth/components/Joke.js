@@ -52,7 +52,7 @@ class Joke extends Component {
   render () {
     const { joke, error, deleted } = this.state
 
-    console.log('joke is', joke)
+    // console.log('joke is', joke)
 
     if (deleted) {
       // return <Redirect to="/" />
@@ -89,7 +89,6 @@ class Joke extends Component {
               <Dropdown.Item>{joke.punchline}</Dropdown.Item>
             </DropdownButton>
             <p>Funny or Not? {String(smiley)}</p>
-
           </Modal.Body>
 
           <Modal.Footer>

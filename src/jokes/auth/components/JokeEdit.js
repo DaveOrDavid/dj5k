@@ -24,7 +24,7 @@ class JokeEdit extends Component {
   // use a lifecycle method to do this on load!
 
   componentDidMount () {
-    console.log('This state is ', this.state)
+    // console.log('This state is ', this.state)
     axios({
       url: `${apiUrl}/jokes/${this.props.match.params._id}`,
       method: 'GET',

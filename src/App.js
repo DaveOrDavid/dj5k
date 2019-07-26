@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import AutoDismissAlert from './AutoDismissAlert/AutoDismissAlert'
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
+import Home from './Home'
 import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
@@ -64,6 +65,9 @@ class App extends Component {
         <section className="humorDisplay">
           <Route path='/random' render={() => (
             <Dad3rdparty user={user} />
+          )} />
+          <Route exact path='/' render={() => (
+            <Home user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/jokes' render={() => (
             <Jokes user={user} />

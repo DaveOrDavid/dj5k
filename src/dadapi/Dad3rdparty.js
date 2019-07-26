@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-// import Modal from 'react-bootstrap/Modal'
-// import Button from 'react-bootstrap/Button'
+import { Link, withRouter } from 'react-router-dom'
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 // import Dropdown from 'react-bootstrap/Dropdown'
 // import DropdownButton from 'react-bootstrap/DropdownButton'
 import axios from 'axios'
@@ -13,7 +13,16 @@ class Dad3rdparty extends Component {
     this.state = {
       joke: ''
     }
+    // this.baseState = this.state
   }
+
+  // resetJoke = () => {
+  //   this.setState(this.baseState)
+  // }
+
+  // someMethod () {
+  //   this.setState({ state: this.state })
+  // }
 
   componentDidMount () {
     axios({
@@ -33,34 +42,37 @@ class Dad3rdparty extends Component {
   render () {
     const { joke } = this.state
 
-    console.log('joke is', joke)
-
-    // if (deleted) {
-    //   // return <Redirect to="/" />
-    //   return <Redirect to={
-    //     { pathname: '/jokes', state: { msg: 'Joke Successfully Deleted' } }
-    //   } />
-    // }
-
-    // if (error) {
-    //   return <p>ERROR: {error}</p>
-    // }
+    // console.log('joke is', joke)
 
     if (!joke) {
       return <p>Loading...</p>
     }
 
-    // let smiley = joke.isfunny
-    // if (smiley === false) {
-    //   smiley = '🙄'
-    // } else {
-    //   smiley = '😂'
+    // const resetJoke = () => {
+    //   this.forceUpdate(this.baseState)
     // }
 
+    // const reRunApi = (onClick) => {
+    //   reset() {
+    //     this.setState({ joke })
+    //   }
+
     return (
-      <React.Fragment>
-        <h4>{joke}</h4>
-      </React.Fragment>
+      <Modal.Dialog>
+        <Modal.Header closeButton>
+          <Modal.Title>Random Joke</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <h1>{joke}</h1>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Link to={'/'}>
+            <Button variant="secondary">Home</Button>
+          </Link>
+        </Modal.Footer>
+      </Modal.Dialog>
     )
   }
 }
