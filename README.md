@@ -32,16 +32,14 @@ I wanted to use React to see how Component / State usage would be vs. POJO
 
 Installation:
 - Download this template.
-- Move the .zip file to your wdi/projects/ directory and Unzip it (creating a folder) -- NOTE: if the folder was -already unzipped, use the mv command line to move it to the sei/projects/ directory.
-- Rename the directory to your-app-name.
-- Empty README.md and fill with your own content.
+- Unzip and rename the template directory.
 - Move into the new project and git init.
-- Replace all instances of 'dj5k' with your app name.
+- Empty README.md and fill with your own content.
+- Replace react-auth-template in package.json with your projects name.
+- Replace the "homepage" field in package.json with your (public) Github account name and repository name.
 - Install dependencies with npm install.
-- Ensure that you have nodemon installed by running npm install -g nodemon.
-- Ensure the API is functioning properly by running npm run server.
-- Once everything is working, make an initial commit.
-- Follow the steps in wdi/express-api-deployment-guide (or sei/express-api-deployment-guide if it gets renamed)
+- git add and git commit your changes.
+- Run the development server with npm start.
 
 - You can either Sign Up to get an account to create your jokes. No one else will see these jokes except for you.  You'll have access to Tell a Joke and create one, Edit it, or Delete it.  You can also vote if you like your joke or not.
 - If you do not wish to Sign Up, you can use the 3rd party icanhazdadjoke API and select a random joke to view.
