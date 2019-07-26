@@ -8,7 +8,6 @@ class Home extends Component {
     super(props)
 
     this.state = {
-      // using 'null' because null = nothing, vs. undefined  = not defined. We want a 'falsy' value (empty objects/arrays will always be truthy, need falsy for our state use)
       hello: null
     }
   }
@@ -16,10 +15,6 @@ class Home extends Component {
   componentDidMount () {
 
   }
-
-  // error handling options:
-  // 1. .catch(err => something (like this.setState({ error: err.stack })), then set this.state = {error: null}
-  // remember to make .then(res => this.setState({ movie: res.data.movie }))
 
   render () {
     const { hello } = this.state

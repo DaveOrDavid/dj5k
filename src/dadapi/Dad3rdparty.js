@@ -35,10 +35,6 @@ class Dad3rdparty extends Component {
       .catch(console.error)
   }
 
-  // error handling options:
-  // 1. .catch(err => something (like this.setState({ error: err.stack })), then set this.state = {error: null}
-  // remember to make .then(res => this.setState({ movie: res.data.movie }))
-
   render () {
     const { joke } = this.state
 
@@ -59,8 +55,8 @@ class Dad3rdparty extends Component {
 
     return (
       <Modal.Dialog>
-        <Modal.Header closeButton>
-          <Modal.Title>Random Joke</Modal.Title>
+        <Modal.Header>
+          <Modal.Title>Random Joke from Dad&apos;s Cargo Pocket</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
