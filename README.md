@@ -33,8 +33,27 @@ I wanted to use React to see how Component / State usage would be vs. POJO
 - You can either Sign Up to get an account to create your jokes. No one else will see these jokes except for you.  You'll have access to Tell a Joke and create one, Edit it, or Delete it.  You can also vote if you like your joke or not.
 - If you do not wish to Sign Up, you can use the 3rd party icanhazdadjoke API and select a random joke to view.
 
+# User Stories
+
+- As a user, I would like to sign up
+- As a user, I would like to sign in
+- As a user, I would like to change password
+- As a user, I would like to sign out
+- As a signed in user, I would like to create a joke
+- As a signed in user, I would like to view my jokes
+- As a signed in user, I would like to update my jokes
+- As a signed in user, I would like to delete my jokes
+
 # Images
+
 
 Wireframe
 
+
 <img src="src/images/wire2.png" />
+
+
+Screenshot
+
+
+<img src="src/images/DJ5Kscreenshot.png" />
