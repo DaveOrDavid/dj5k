@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, Redirect, withRouter } from 'react-router-dom'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import axios from 'axios'
@@ -85,9 +86,20 @@ class Joke extends Component {
 
           <Modal.Body className="jokeSetupDisplay">
             <p>Setup: {joke.setup}</p>
-            <DropdownButton id="dropdown-basic-button" title="Reveal Punchline">
-              <Dropdown.Item>{joke.punchline}</Dropdown.Item>
-            </DropdownButton>
+            <ButtonToolbar>
+              {['right'].map(direction => (
+                <DropdownButton
+                  drop={direction}
+                  variant="primary"
+                  title={' Reveal Punchline '}
+                  id={`dropdown-button-drop-${direction}`}
+                  key={direction}
+                >
+                  <Dropdown.Item eventKey="Reveal Punchline">{joke.punchline}</Dropdown.Item>
+                </DropdownButton>
+              ))}
+            </ButtonToolbar>
+            <br></br>
             <p>Funny or Not? {String(smiley)}</p>
           </Modal.Body>
 
