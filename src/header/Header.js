@@ -49,7 +49,7 @@ const Header = ({ user }) => (
     <Navbar.Brand href="#home">
       <img src={require('../images/NB.png')} alt={ '' } className={ 'd-inline-block align-top' } />
     </Navbar.Brand>
-    <h3>{ 'Dad Joke 5000' }</h3>
+    <h1 className="dadJokeTitle">{ 'Dad Joke' }</h1>&nbsp;&nbsp;<h1 className="fiveK">{ '5000' }</h1>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="mr-auto">
