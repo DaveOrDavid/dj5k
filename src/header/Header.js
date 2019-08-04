@@ -46,7 +46,7 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <Navbar className="main-header" expand="sm" bg="info" variant="dark" fixed="top">
-    <Navbar.Brand href="#home">
+    <Navbar.Brand href="#/">
       <img src={require('../images/NB.png')} alt={ '' } className={ 'd-inline-block align-top' } />
     </Navbar.Brand>
     <h1 className="dadJokeTitle">{ 'Dad Joke' }</h1>&nbsp;&nbsp;<h1 className="fiveK">{ '5000' }</h1>

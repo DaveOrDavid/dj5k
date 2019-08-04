@@ -1,5 +1,12 @@
-section {
+.homeBox {
+  background-color: rgba(76, 76, 178, 0.6);
+  transition: background 2s;
+  font-family: 'Cutive', serif;
   padding: 30px;
   background-position: center;
   height: 300px;
+}
+
+.homeBox:hover {
+  background-color: rgba(255, 255, 255, .7);
 }
