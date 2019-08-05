@@ -1,0 +1,16 @@
+
+.jokeColumn {
+  display: inline-block;
+  background-color: white;
+  width: auto;
+}
+
+@media (max-width: 1185px) {
+  .jokeColumn {
+    column-count: 2;
+  }
+  .humorDisplay {
+    padding: 20px;
+    margin: 20px;
+  }
+}

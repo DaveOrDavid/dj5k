@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
+import './Jokes.scss'
 import axios from 'axios'
 import apiUrl from '../../../apiConfig'
 import Card from 'react-bootstrap/Card'
@@ -75,7 +76,7 @@ class Jokes extends Component {
     return (
       <React.Fragment>
         <h4>Jokes</h4>
-        <CardColumns>
+        <CardColumns className="jokeColumn">
           {jokesList}
         </CardColumns>
       </React.Fragment>
