@@ -70,7 +70,7 @@ class JokeEdit extends Component {
   }
   // Step 2: render function to display jsx
   render () {
-    const { joke, edited } = this.state // make sure to destructure your object "movie"
+    const { joke, edited } = this.state // make sure to destructure your object "joke"
     const { handleChange, handleSubmit } = this
 
     // handle redirect for updated movie:
