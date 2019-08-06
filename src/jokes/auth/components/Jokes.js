@@ -3,9 +3,12 @@ import React, { Component } from 'react'
 import './Jokes.scss'
 import axios from 'axios'
 import apiUrl from '../../../apiConfig'
+import Container from 'react-bootstrap/Container'
+// import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 import Card from 'react-bootstrap/Card'
-import CardColumns from 'react-bootstrap/CardColumns'
-// import CardDeck from 'react-bootstrap/CardDeck'
+// import CardColumns from 'react-bootstrap/CardColumns'
+import CardDeck from 'react-bootstrap/CardDeck'
 
 class Jokes extends Component {
   constructor (props) {
@@ -34,16 +37,19 @@ class Jokes extends Component {
 
   render () {
     const { jokes } = this.state
+
     const jokesList = jokes.map(joke => (
-      <Card key={joke._id} style={{ width: '20rem' }}>
-        <Card.Body>
-          <Card.Title>{joke.title}</Card.Title>
-          <Card.Text>
-            {joke.setup}
-          </Card.Text>
-          <Card.Link href={`#/jokes/${joke._id}`}>Card Link</Card.Link>
-        </Card.Body>
-      </Card>
+      <Row key={joke._id}>
+        <Card bg="light">
+          <Card.Header><h4>{joke.title}</h4></Card.Header>
+          <Card.Body>
+            <Card.Text>
+              {joke.setup}
+            </Card.Text>
+            <Card.Link href={`#/jokes/${joke._id}`}>Card Link</Card.Link>
+          </Card.Body>
+        </Card>
+      </Row>
     ))
 
     //   <ListGroup.Item
@@ -63,7 +69,7 @@ class Jokes extends Component {
     //   }
 
     if (jokes.length === 0) {
-      return <Card style={{ width: '25rem' }}>
+      return <Card>
         <Card.Body>
           <Card.Title><h1>No jokes to return</h1></Card.Title>
           <Card.Text>
@@ -73,12 +79,25 @@ class Jokes extends Component {
       </Card>
     }
 
+    // <Container>
+    //   <Row>
+    //     <Col xs={12} md={8}>
+    //       xs=12 md=8
+    //     </Col>
+    //     <Col xs={6} md={4}>
+    //       xs=6 md=4
+    //     </Col>
+    //   </Row>
+    // </Container>
+
     return (
       <React.Fragment>
         <h4>Jokes</h4>
-        <CardColumns className="jokeColumn">
-          {jokesList}
-        </CardColumns>
+        <Container>
+          <CardDeck>
+            {jokesList}
+          </CardDeck>
+        </Container>
       </React.Fragment>
     )
   }

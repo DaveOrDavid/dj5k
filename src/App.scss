@@ -5,17 +5,16 @@ $charcoal: #ccc;
 
 body {
   background-image: url('images/lawnbg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-.container, {
-  padding: 50px;
+.mainContainer, {
+  padding: 20px;
 }
 
 .humorDisplay {
-  // background-color: white;
-  // border-style: solid;
-  // border-color: purple;
-  // border-width: 10px;
   padding: 50px;
   margin: 50px 70px;
 }
