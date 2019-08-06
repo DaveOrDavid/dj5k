@@ -69,7 +69,7 @@ class App extends Component {
           <Route exact path='/' render={() => (
             <Home user={user} />
           )} />
-          <Route user={user} exact path='/jokes' render={() => (
+          <AuthenticatedRoute user={user} exact path='/jokes' render={() => (
             <Jokes user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/telljoke' render={() => (

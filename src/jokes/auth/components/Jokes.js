@@ -41,16 +41,17 @@ class Jokes extends Component {
     const jokesList = jokes.map(joke => (
       <Row key={joke._id}>
         <Card bg="light">
-          <Card.Header><h4>{joke.title}</h4></Card.Header>
+          <Card.Header className="specialTitle"><h4>{joke.title}</h4></Card.Header>
           <Card.Body>
             <Card.Text>
               {joke.setup}
             </Card.Text>
-            <Card.Link href={`#/jokes/${joke._id}`}>Card Link</Card.Link>
+            <Card.Link href={`#/jokes/${joke._id}`}>Click for Complete Joke</Card.Link>
           </Card.Body>
         </Card>
       </Row>
     ))
+    // console.log('joke setup string is ', jokes._id.setup)
 
     //   <ListGroup.Item
     //     key={joke._id}

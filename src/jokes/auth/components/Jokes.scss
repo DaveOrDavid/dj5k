@@ -5,9 +5,13 @@
   height: 250px;
 }
 
+.specialTitle {
+  font-family: 'Orbitron', serif;
+}
+
 .card-deck {
   display: flex;
-  // background-color: white;
+  background-color: rgba(212, 253, 211, .5);
   flex-wrap: wrap;
   justify-content: center;
 }
