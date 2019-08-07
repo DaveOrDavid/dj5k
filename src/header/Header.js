@@ -48,7 +48,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar className="main-header" collapseOnSelect expand="md" bg="info" variant="dark" sticky="top">
     <Navbar.Brand href="#/">
-      <img src={require('../images/NB.png')} alt={ '' }/>
+      <img src='images/NB.png' alt={ '' }/>
       <h1 className="mt-4 d-none d-sm-inline-block"><span className="dadJokeTitle">Dad Joke</span>&nbsp;<span className="fiveK">5000</span></h1>
       <h1 className="mt-4 d-inline-flex d-sm-none"><span className="m-0 dadJokeTitle">DJ</span><span className="m-0 fiveK">5K</span></h1>
     </Navbar.Brand>
