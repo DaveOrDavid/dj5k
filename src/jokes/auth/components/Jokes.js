@@ -39,17 +39,20 @@ class Jokes extends Component {
     const { jokes } = this.state
 
     const jokesList = jokes.map(joke => (
-      <Row key={joke._id}>
-        <Card bg="light">
-          <Card.Header className="specialTitle"><h4>{joke.title}</h4></Card.Header>
-          <Card.Body>
-            <Card.Text>
-              {joke.setup}
-            </Card.Text>
-            <Card.Link href={`#/jokes/${joke._id}`}>Click for Complete Joke</Card.Link>
-          </Card.Body>
-        </Card>
-      </Row>
+      <div key={joke._id}>
+        <Card.Link href={`#/jokes/${joke._id}`}>
+          <Row>
+            <Card bg="light">
+              <Card.Header className="specialTitle"><h4>{joke.title}</h4></Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  {joke.setup}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Row>
+        </Card.Link>
+      </div>
     ))
     // console.log('joke setup string is ', jokes._id.setup)
 
@@ -93,7 +96,6 @@ class Jokes extends Component {
 
     return (
       <React.Fragment>
-        <h4>Jokes</h4>
         <Container>
           <CardDeck>
             {jokesList}

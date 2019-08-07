@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+// import Container from 'react-bootstrap/Container'
 
 import './Header.scss'
 
@@ -24,7 +25,7 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
   <React.Fragment>
     <NavDropdown.Item href="#/">Go Home (and Don&apos;t touch that thermostat!)</NavDropdown.Item>
-    <NavDropdown.Item href='#/random'>Random Joke - Reach in the Cargo Short Pocket  </NavDropdown.Item>
+    <NavDropdown.Item href='#/random'>Random Joke - Reach in the Cargo Short Pocket </NavDropdown.Item>
   </React.Fragment>
 )
 
@@ -45,19 +46,17 @@ const alwaysOptions = (
 //   </React.Fragment>
 
 const Header = ({ user }) => (
-  <Navbar className="main-header" expand="sm" bg="info" variant="dark" fixed="top">
+  <Navbar className="main-header" collapseOnSelect expand="md" bg="info" variant="dark" sticky="top">
     <Navbar.Brand href="#/">
       <img src={require('../images/NB.png')} alt={ '' } className={ 'd-inline-block align-top' } />
     </Navbar.Brand>
     <h1 className="dadJokeTitle">{ 'Dad Joke' }</h1>&nbsp;&nbsp;<h1 className="fiveK">{ '5000' }</h1>
-    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="mr-auto">
         { user && <span>Welcome, {user.email}</span>}
         <NavDropdown title="Main Menu" id="mainMenu-nav-dropdown">
           { user ? authenticatedOptions : unauthenticatedOptions }
-        </NavDropdown>
-        <NavDropdown title="Navigation" id="nav-nav-dropdown">
           { alwaysOptions }
         </NavDropdown>
       </Nav>

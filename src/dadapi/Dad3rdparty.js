@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import axios from 'axios'
+
 // import Dropdown from 'react-bootstrap/Dropdown'
 // import DropdownButton from 'react-bootstrap/DropdownButton'
-import axios from 'axios'
+// import randomDadJoke from './dadapi.js'
 // import apiUrl from '../../../apiConfig'
 
 class Dad3rdparty extends Component {
@@ -13,16 +15,7 @@ class Dad3rdparty extends Component {
     this.state = {
       joke: ''
     }
-    // this.baseState = this.state
   }
-
-  // resetJoke = () => {
-  //   this.setState(this.baseState)
-  // }
-
-  // someMethod () {
-  //   this.setState({ state: this.state })
-  // }
 
   componentDidMount () {
     axios({
@@ -38,20 +31,9 @@ class Dad3rdparty extends Component {
   render () {
     const { joke } = this.state
 
-    // console.log('joke is', joke)
-
     if (!joke) {
       return <p>Loading...</p>
     }
-
-    // const resetJoke = () => {
-    //   this.forceUpdate(this.baseState)
-    // }
-
-    // const reRunApi = (onClick) => {
-    //   reset() {
-    //     this.setState({ joke })
-    //   }
 
     return (
       <Modal.Dialog>
