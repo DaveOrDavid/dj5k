@@ -26,14 +26,14 @@ class Home extends Component {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={require('./images/WelcomeQuestion.png')}
+            src='images/WelcomeQuestion.png'
             alt="First slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={require('./images/blankbg.png')}
+            src='images/blankbg.png'
             alt="Third slide"
           />
 
@@ -45,7 +45,7 @@ class Home extends Component {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={require('./images/blankbg.png')}
+            src='images/blankbg.png'
             alt="Third slide"
           />
 

@@ -43,6 +43,7 @@ class SignIn extends Component {
         <label htmlFor="email">Email</label>
         <input
           required
+          className="form-control"
           type="email"
           name="email"
           value={email}
@@ -52,13 +53,14 @@ class SignIn extends Component {
         <label htmlFor="password">Password</label>
         <input
           required
+          className="form-control"
           name="password"
           value={password}
           type="password"
           placeholder="Password"
           onChange={this.handleChange}
         />
-        <button type="submit">Sign In</button>
+        <button type="submit" className="btn btn-info">Sign In</button>
       </form>
     )
   }

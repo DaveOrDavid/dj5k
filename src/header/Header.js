@@ -48,14 +48,15 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar className="main-header" collapseOnSelect expand="md" bg="info" variant="dark" sticky="top">
     <Navbar.Brand href="#/">
-      <img src={require('../images/NB.png')} alt={ '' } className={ 'd-inline-block align-top' } />
+      <img src={require('../images/NB.png')} alt={ '' }/>
+      <h1 className="mt-4 d-none d-sm-inline-block"><span className="dadJokeTitle">Dad Joke</span>&nbsp;<span className="fiveK">5000</span></h1>
+      <h1 className="mt-4 d-inline-flex d-sm-none"><span className="m-0 dadJokeTitle">DJ</span><span className="m-0 fiveK">5K</span></h1>
     </Navbar.Brand>
-    <h1 className="dadJokeTitle">{ 'Dad Joke' }</h1>&nbsp;&nbsp;<h1 className="fiveK">{ '5000' }</h1>
     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
     <Navbar.Collapse id="responsive-navbar-nav">
-      <Nav className="mr-auto">
-        { user && <span>Welcome, {user.email}</span>}
-        <NavDropdown title="Main Menu" id="mainMenu-nav-dropdown">
+      <Nav className="ml-auto">
+        <Navbar.Text>{ user && `Welcome, ${user.email}` }</Navbar.Text>
+        <NavDropdown title="Main Menu" alignRight id="mainMenu-nav-dropdown">
           { user ? authenticatedOptions : unauthenticatedOptions }
           { alwaysOptions }
         </NavDropdown>
