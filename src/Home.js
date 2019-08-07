@@ -36,10 +36,8 @@ class Home extends Component {
             src='images/blankbg.png'
             alt="Third slide"
           />
-
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Dad Joke 5000 (or DJ5K as the kids say) is a collection of all your puns, one-liners, and dad jokes.</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -48,10 +46,18 @@ class Home extends Component {
             src='images/blankbg.png'
             alt="Third slide"
           />
-
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h3>Click <em>Tell Joke</em> in the Main Menu to get started.</h3>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src='images/blankbg.png'
+            alt="Third slide"
+          />
+          <Carousel.Caption>
+            <h3>Can&#39;t think of a joke? Use the <em>Random Joke</em> button to have one generated for you</h3>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
