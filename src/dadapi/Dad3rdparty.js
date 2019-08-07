@@ -28,31 +28,44 @@ class Dad3rdparty extends Component {
       .catch(console.error)
   }
 
-  render () {
-    const { joke } = this.state
+   getJoke = () => {
+     axios({
+       baseURL: 'https://icanhazdadjoke.com',
+       headers: {
+         Accept: 'application/json'
+       }
+     })
+       .then(res => this.setState({ joke: res.data.joke }))
+       .catch(console.error)
+   }
 
-    if (!joke) {
-      return <p>Loading...</p>
-    }
+   render () {
+     const { joke } = this.state
+     const { getJoke } = this
 
-    return (
-      <Modal.Dialog>
-        <Modal.Header>
-          <Modal.Title>Random Joke from Dad&apos;s Cargo Pocket</Modal.Title>
-        </Modal.Header>
+     if (!joke) {
+       return <p>Loading...</p>
+     }
 
-        <Modal.Body>
-          <h1>{joke}</h1>
-        </Modal.Body>
+     return (
+       <Modal.Dialog>
+         <Modal.Header>
+           <Modal.Title>Random Joke from Dad&apos;s Cargo Pocket</Modal.Title>
+         </Modal.Header>
 
-        <Modal.Footer>
-          <Link to={'/'}>
-            <Button variant="secondary">Home</Button>
-          </Link>
-        </Modal.Footer>
-      </Modal.Dialog>
-    )
-  }
+         <Modal.Body>
+           <h1>{joke}</h1>
+         </Modal.Body>
+
+         <Modal.Footer>
+           <Link to={'/'}>
+             <Button variant="secondary">Home</Button>
+           </Link>
+           <Button variant="secondary" onClick={getJoke}>Click for More Jokes!</Button>
+         </Modal.Footer>
+       </Modal.Dialog>
+     )
+   }
 }
 
 export default withRouter(Dad3rdparty)
