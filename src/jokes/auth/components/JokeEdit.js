@@ -98,7 +98,7 @@ class JokeEdit extends Component {
 
     return (
       <React.Fragment>
-        <h3>Edit Your Joke</h3>
+        <h3 className="formH3">Edit Your Joke</h3>
         <JokeForm
           joke={joke}
           handleChange={handleChange}

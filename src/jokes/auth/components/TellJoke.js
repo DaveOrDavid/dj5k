@@ -65,7 +65,7 @@ class TellJoke extends Component {
 
     return (
       <React.Fragment>
-        <h4>Create a new joke</h4>
+        <h3 className="formH3">Tell us a Joke!</h3>
         <JokeForm
           joke={joke}
           handleChange={handleChange}
