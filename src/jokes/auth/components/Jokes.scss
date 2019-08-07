@@ -1,0 +1,65 @@
+// @keyframes slideInFromLeft {
+//   0% {
+//     transform: translateX(-20%);
+//   }
+//   100% {
+//     transform: translateX(0%);
+//   }
+// }
+
+.row {
+  // animation: 1s ease-out 0s 1 slideInFromLeft;
+  margin: 10px;
+  width: 350px;
+  height: 250px;
+}
+
+.specialTitle {
+  font-family: 'Orbitron', serif;
+  transition: background-color 200ms;
+  color: #212529;
+  text-decoration: inherit;
+}
+
+.card-text {
+  color: #212529;
+  text-decoration: inherit;
+}
+
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  perspective: 100px;
+}
+
+.row {
+    transition: transform 200ms;
+  }
+
+.row:hover {
+  transform: translate3d(8px, 8px, 5px);
+  .specialTitle {
+    background-color: rgba(114, 246, 110, 1);
+  }
+}
+
+.JokesTitlePage {
+  text-align: center;
+  color: rgba(218, 165, 32, 1);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgba(248, 248, 255, 1);
+  font-size: 70px
+
+}
+
+
+// @media (max-width: 1185px) {
+//   .jokeDeck {
+//     column-count: 2;
+//   }
+//   .humorDisplay {
+//     padding: 20px;
+//     margin: 20px;
+//   }
+// }

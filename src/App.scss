@@ -5,14 +5,20 @@ $charcoal: #ccc;
 
 body {
   background-image: url('images/lawnbg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-.container, {
-  padding: 50px;
+.mainContainer, {
+  padding: 20px;
+  font-family: 'Cutive', serif;
 }
 
-.humordisplay {
+.humorDisplay {
   padding: 50px;
+  margin: 50px 70px;
+  font-family: 'Cutive', serif;
 }
 
 .flash-success,
@@ -47,6 +53,9 @@ body {
   justify-content: center;
   margin: 15% auto 0;
   max-width: 600px;
+  padding: 1.5rem;
+  background-color: #EEEEEE;
+  border: 2px solid #ABABAB;
 
 
   h3,

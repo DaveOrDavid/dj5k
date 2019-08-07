@@ -8,13 +8,16 @@ $charcoal: #bbb;
   height: 100px;
   padding: 0 20px;
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
   .dadJokeTitle {
     font-family: 'Cutive', serif;
   }
-
   .fiveK {
     font-family: 'Orbitron', sans-serif;
   }
+}
 
   a,
   span {
@@ -24,11 +27,25 @@ $charcoal: #bbb;
 
 }
 
-.main-header > nav {
-  align-items: center;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-end;
+// .main-header > .mr-auto {
+//   align-items: center;
+//   display: flex;
+//   flex-grow: 1;
+//   justify-content: flex-end;
+// }
+
+a.dropdown-item {
+  margin: 0px;
+  transition: background 1000ms, color 1000ms;
+}
+
+a.dropdown-item:hover {
+  background-color: rgba(212, 253, 211, 1);
+  color: #000000;
+}
+
+.dropdown-item.active {
+  background-color: green;
 }
 
 @media (max-width: 600px) {

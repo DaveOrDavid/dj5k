@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
+import './Jokes.scss'
 import axios from 'axios'
 import apiUrl from '../../../apiConfig'
-import ListGroup from 'react-bootstrap/ListGroup'
+import Container from 'react-bootstrap/Container'
+// import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import Card from 'react-bootstrap/Card'
+// import CardColumns from 'react-bootstrap/CardColumns'
+import CardDeck from 'react-bootstrap/CardDeck'
 
 class Jokes extends Component {
   constructor (props) {
@@ -31,25 +37,70 @@ class Jokes extends Component {
 
   render () {
     const { jokes } = this.state
+
     const jokesList = jokes.map(joke => (
-      <ListGroup.Item
-        key={joke._id}
-        variant="secondary"
-        action href={`#/jokes/${joke._id}`}>
-        {joke.title}
-      </ListGroup.Item>
+      <div key={joke._id}>
+        <Card.Link href={`#/jokes/${joke._id}`}>
+          <Row>
+            <Card bg="light">
+              <Card.Header className="specialTitle"><h4>{joke.title}</h4></Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  {joke.setup}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Row>
+        </Card.Link>
+      </div>
     ))
+    // console.log('joke setup string is ', jokes._id.setup)
+
+    //   <ListGroup.Item
+    //     key={joke._id}
+    //     variant="secondary"
+    //     action href={`#/jokes/${joke._id}`}>
+    //     {joke.title}
+    //   </ListGroup.Item>
+    // ))
+
+    // const jokesList = jokes.forEach(function (joke) {
+    // const jokesList = (joke) => {
+    //   for (let i = 0; i < jokes.length; i++) {
+    //     return <ListGroup.Item key={joke._id} action href={`#/jokes/${joke._id}`}>
+    //       {joke.title}
+    //     </ListGroup.Item>
+    //   }
 
     if (jokes.length === 0) {
-      return <p>No jokes to return - tell us a joke instead!</p>
+      return <Card>
+        <Card.Body>
+          <Card.Title><h1>No jokes to return</h1></Card.Title>
+          <Card.Text>
+            <Card.Link href={'#/telljoke'}>How about telling us a joke?</Card.Link>
+          </Card.Text>
+        </Card.Body>
+      </Card>
     }
+
+    // <Container>
+    //   <Row>
+    //     <Col xs={12} md={8}>
+    //       xs=12 md=8
+    //     </Col>
+    //     <Col xs={6} md={4}>
+    //       xs=6 md=4
+    //     </Col>
+    //   </Row>
+    // </Container>
 
     return (
       <React.Fragment>
-        <h4>Jokes</h4>
-        <ListGroup>
-          {jokesList}
-        </ListGroup>
+        <Container>
+          <CardDeck>
+            {jokesList}
+          </CardDeck>
+        </Container>
       </React.Fragment>
     )
   }

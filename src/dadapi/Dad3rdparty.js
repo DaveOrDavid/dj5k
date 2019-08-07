@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import axios from 'axios'
+
 // import Dropdown from 'react-bootstrap/Dropdown'
 // import DropdownButton from 'react-bootstrap/DropdownButton'
-import axios from 'axios'
+// import randomDadJoke from './dadapi.js'
 // import apiUrl from '../../../apiConfig'
 
 class Dad3rdparty extends Component {
@@ -13,16 +15,7 @@ class Dad3rdparty extends Component {
     this.state = {
       joke: ''
     }
-    // this.baseState = this.state
   }
-
-  // resetJoke = () => {
-  //   this.setState(this.baseState)
-  // }
-
-  // someMethod () {
-  //   this.setState({ state: this.state })
-  // }
 
   componentDidMount () {
     axios({
@@ -35,42 +28,44 @@ class Dad3rdparty extends Component {
       .catch(console.error)
   }
 
-  render () {
-    const { joke } = this.state
+   getJoke = () => {
+     axios({
+       baseURL: 'https://icanhazdadjoke.com',
+       headers: {
+         Accept: 'application/json'
+       }
+     })
+       .then(res => this.setState({ joke: res.data.joke }))
+       .catch(console.error)
+   }
 
-    // console.log('joke is', joke)
+   render () {
+     const { joke } = this.state
+     const { getJoke } = this
 
-    if (!joke) {
-      return <p>Loading...</p>
-    }
+     if (!joke) {
+       return <p>Loading...</p>
+     }
 
-    // const resetJoke = () => {
-    //   this.forceUpdate(this.baseState)
-    // }
+     return (
+       <Modal.Dialog>
+         <Modal.Header>
+           <Modal.Title>Random Joke from Dad&apos;s Cargo Pocket</Modal.Title>
+         </Modal.Header>
 
-    // const reRunApi = (onClick) => {
-    //   reset() {
-    //     this.setState({ joke })
-    //   }
+         <Modal.Body>
+           <h1>{joke}</h1>
+         </Modal.Body>
 
-    return (
-      <Modal.Dialog>
-        <Modal.Header>
-          <Modal.Title>Random Joke from Dad&apos;s Cargo Pocket</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          <h1>{joke}</h1>
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Link to={'/'}>
-            <Button variant="secondary">Home</Button>
-          </Link>
-        </Modal.Footer>
-      </Modal.Dialog>
-    )
-  }
+         <Modal.Footer>
+           <Link to={'/'}>
+             <Button variant="secondary">Home</Button>
+           </Link>
+           <Button variant="secondary" onClick={getJoke}>Click for More Jokes!</Button>
+         </Modal.Footer>
+       </Modal.Dialog>
+     )
+   }
 }
 
 export default withRouter(Dad3rdparty)

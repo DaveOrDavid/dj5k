@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Redirect, withRouter } from 'react-router-dom'
+import './Jokes.scss'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
@@ -79,18 +80,18 @@ class Joke extends Component {
 
     return (
       <React.Fragment>
-        <Modal.Dialog>
+        <Modal.Dialog size="xl">
           <Modal.Header>
             <Modal.Title><h4>{joke.title}</h4></Modal.Title>
           </Modal.Header>
 
-          <Modal.Body className="jokeSetupDisplay">
+          <Modal.Body>
             <p>Setup: {joke.setup}</p>
             <ButtonToolbar>
               {['right'].map(direction => (
                 <DropdownButton
                   drop={direction}
-                  variant="primary"
+                  variant="success"
                   title={' Reveal Punchline '}
                   id={`dropdown-button-drop-${direction}`}
                   key={direction}
