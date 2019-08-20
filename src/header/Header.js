@@ -19,6 +19,7 @@ const unauthenticatedOptions = (
   <React.Fragment>
     <NavDropdown.Item href="#/sign-up">Sign Up</NavDropdown.Item>
     <NavDropdown.Item href="#/sign-in">Sign In</NavDropdown.Item>
+    <NavDropdown.Item href="#/jokes">All Jokes</NavDropdown.Item>
   </React.Fragment>
 )
 

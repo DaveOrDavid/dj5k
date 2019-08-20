@@ -37,11 +37,11 @@ class Joke extends Component {
   componentDidMount () {
     axios({
       url: `${apiUrl}/jokes/${this.props.match.params._id}`,
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${this.props.user.token}`
-      },
-      data: { joke: this.state.joke }
+      method: 'GET'
+      // headers: {
+      //   'Authorization': `Bearer ${this.props.user.token}`
+      // },
+      // data: { joke: this.state.joke }
     })
       .then(res => this.setState({ joke: res.data.joke, loaded: true }))
       .catch(err => this.setState({ error: err.message }))
@@ -53,8 +53,9 @@ class Joke extends Component {
 
   render () {
     const { joke, error, deleted } = this.state
+    const { user } = this.props
 
-    // console.log('joke is', joke)
+    console.log('user is', user)
 
     if (deleted) {
       // return <Redirect to="/" />
@@ -105,10 +106,12 @@ class Joke extends Component {
           </Modal.Body>
 
           <Modal.Footer>
-            <Link to={`/jokes/${this.props.match.params._id}/edit`}>
-              <Button variant="secondary">Edit Joke</Button>
-            </Link>
-            <Button variant="warning" onClick={this.deleteJoke}>Delete Joke</Button>
+            {user === null ? '' : <React.Fragment>
+              <Link to={`/jokes/${this.props.match.params._id}/edit`}>
+                <Button variant="secondary">Edit Joke</Button>
+              </Link>
+              <Button variant="warning" onClick={this.deleteJoke}>Delete Joke</Button>
+            </React.Fragment>}
             <Link to={'/jokes'}>
               <Button variant="primary">Back to More Dad Jokes</Button>
             </Link>

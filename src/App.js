@@ -69,13 +69,13 @@ class App extends Component {
           <Route exact path='/' render={() => (
             <Home user={user} />
           )} />
-          <AuthenticatedRoute user={user} exact path='/jokes' render={() => (
+          <Route user={user} exact path='/jokes' render={() => (
             <Jokes user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/telljoke' render={() => (
             <TellJoke user={user} />
           )} />
-          <AuthenticatedRoute user={user} exact path='/jokes/:_id' render={() => (
+          <Route user={user} exact path='/jokes/:_id' render={() => (
             <Joke user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/jokes/:_id/edit' render={() => (

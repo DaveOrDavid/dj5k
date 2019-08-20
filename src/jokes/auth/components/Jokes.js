@@ -26,10 +26,10 @@ class Jokes extends Component {
     // console.log('Props is ', this.props)
     axios({
       url: `${apiUrl}/jokes`,
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${this.props.user.token}`
-      }
+      method: 'GET'
+      // headers: {
+      //   'Authorization': `Bearer ${this.props.user.token}`
+      // }
     })
       .then(res => this.setState({ jokes: res.data.jokes, loaded: true }))
       .catch(err => this.setState({ error: err.message }))
@@ -37,6 +37,17 @@ class Jokes extends Component {
 
   render () {
     const { jokes } = this.state
+
+    if (jokes.length === 0) {
+      return <Card>
+        <Card.Body>
+          <Card.Title><h1>No jokes to return</h1></Card.Title>
+          <Card.Text>
+            <Card.Link href={'#/telljoke'}>How about telling us a joke?</Card.Link>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    }
 
     const jokesList = jokes.map(joke => (
       <div key={joke._id}>
@@ -71,17 +82,6 @@ class Jokes extends Component {
     //       {joke.title}
     //     </ListGroup.Item>
     //   }
-
-    if (jokes.length === 0) {
-      return <Card>
-        <Card.Body>
-          <Card.Title><h1>No jokes to return</h1></Card.Title>
-          <Card.Text>
-            <Card.Link href={'#/telljoke'}>How about telling us a joke?</Card.Link>
-          </Card.Text>
-        </Card.Body>
-      </Card>
-    }
 
     // <Container>
     //   <Row>
